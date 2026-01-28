@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { Dumbbell, HeartPulse, Users, Apple, BarChart3, Star } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Services() {
   // Services data
@@ -15,35 +16,35 @@ export default function Services() {
       title: 'Weight Training',
       description: 'Build strength and muscle mass with our state-of-the-art weight training equipment and expert guidance.',
       icon: Dumbbell,
-      image: './images/weight-training.avif',
+      image: '/images/weight-training.avif',
     },
     {
       id: 2,
       title: 'Cardio Classes',
       description: 'Burn calories and improve cardiovascular health with our high-energy cardio classes.',
       icon: HeartPulse,
-      image: '../public/images/cardio.jpg',
+      image: '/images/cardio-area.jpg',
     },
     {
       id: 3,
       title: 'Personal Training',
       description: 'One-on-one personalized training sessions tailored to your specific goals and needs.',
       icon: Users,
-      image: './public/images/personal-training.webp',
+      image: '/images/personal-training.webp',
     },
     {
       id: 4,
       title: 'Nutrition Coaching',
       description: 'Professional nutrition guidance to fuel your body properly and maximize your results.',
       icon: Apple,
-      image: '.../images/nutrition.avif',
+      image: '/images/nutrition.avif',
     },
     {
       id: 5,
       title: 'Group Fitness',
       description: 'Join our fun and engaging group fitness classes suitable for all fitness levels.',
       icon: Users,
-      image: '/images/group-fitness.jpg',
+      image: '/images/group-fitness.avif',
     },
     {
       id: 6,
@@ -60,7 +61,7 @@ export default function Services() {
       {/* Services Hero Section */}
       <section className="relative py-32 bg-gradient-to-r from-gray-900 to-black text-white">
         <div className="absolute inset-0 bg-cover bg-center opacity-20"
-             style={{ backgroundImage: 'url(/images/gym-services.jpg)' }}></div>
+          style={{ backgroundImage: 'url(/images/gym-services.jpg)' }}></div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
           <motion.h1
@@ -106,7 +107,14 @@ export default function Services() {
                     <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
                   </div>
 
-                  <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48 mb-4" />
+                  <div className="relative w-full h-48 mb-4 overflow-hidden rounded-xl">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
 
                   <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
 

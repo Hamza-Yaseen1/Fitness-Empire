@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { Star, Users, Award, Target } from 'lucide-react';
+import Image from 'next/image';
 
 export default function About() {
   // Testimonials data
@@ -38,23 +39,23 @@ export default function About() {
     {
       id: 1,
       name: 'Ali Raza',
-      specialty: 'Weight Training',
+      specialty: 'Cardio & Nutrition',
       experience: '8 years',
-      image: '/images/trainer1.jpg',
+      image: '/images/personal-trainer.avif',
     },
     {
       id: 2,
       name: 'Sara Ahmed',
-      specialty: 'Cardio & Nutrition',
+      specialty: 'Weight Training',
       experience: '6 years',
-      image: '/images/trainer2.jpg',
+      image: '/images/trainer-girl1.avif',
     },
     {
       id: 3,
       name: 'Kamran Malik',
       specialty: 'Personal Training',
       experience: '10 years',
-      image: '/images/trainer3.jpg',
+      image: '/images/tariner2.avif',
     },
   ];
 
@@ -65,7 +66,7 @@ export default function About() {
       {/* About Hero Section */}
       <section className="relative py-32 bg-gradient-to-r from-gray-900 to-black text-white">
         <div className="absolute inset-0 bg-cover bg-center opacity-20"
-             style={{ backgroundImage: 'url(/images/gym-about.jpg)' }}></div>
+          style={{ backgroundImage: 'url(/images/gym-exterior.avif)' }}></div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
           <motion.h1
@@ -134,7 +135,14 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96" />
+              <div className="relative w-full h-96 overflow-hidden rounded-xl">
+                <Image
+                  src="/images/gym-services.jpg"
+                  alt="Fitness Empire Interior"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -237,7 +245,14 @@ export default function About() {
                 transition={{ duration: 0.5, delay: trainer.id * 0.1 }}
               >
                 <Card variant="service">
-                  <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 mb-4" />
+                  <div className="relative w-full h-64 mb-4 overflow-hidden rounded-xl">
+                    <Image
+                      src={trainer.image}
+                      alt={trainer.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{trainer.name}</h3>
                   <p className="text-red-600 font-medium mb-2">{trainer.specialty}</p>
                   <p className="text-gray-600 text-sm mb-4">Experience: {trainer.experience}</p>

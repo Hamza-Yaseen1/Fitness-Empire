@@ -98,7 +98,7 @@ export default function Pricing() {
       {/* Pricing Hero Section */}
       <section className="relative py-32 bg-gradient-to-r from-gray-900 to-black text-white">
         <div className="absolute inset-0 bg-cover bg-center opacity-20"
-             style={{ backgroundImage: 'url(/images/gym-pricing.jpg)' }}></div>
+          style={{ backgroundImage: 'url(/images/gym-pricing.avif)' }}></div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
           <motion.h1
