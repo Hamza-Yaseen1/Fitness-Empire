@@ -10,6 +10,8 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -18,9 +20,11 @@ const Button = ({
   size = 'md',
   href,
   onClick,
-  className = ''
+  className = '',
+  type = 'button',
+  disabled = false
 }: ButtonProps) => {
-  const baseClasses = "inline-flex items-center justify-center font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+  const baseClasses = "inline-flex items-center justify-center font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variantClasses = {
     primary: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
@@ -35,32 +39,32 @@ const Button = ({
 
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
-  const buttonElement = (
-    <motion.button
-      className={buttonClasses}
-      onClick={onClick}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      {children}
-    </motion.button>
-  );
-
   if (href) {
     return (
-      <Link href={href}>
-        <motion.button
+      <Link href={href} className="inline-block">
+        <motion.span
           className={buttonClasses}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {children}
-        </motion.button>
+        </motion.span>
       </Link>
     );
   }
 
-  return buttonElement;
+  return (
+    <motion.button
+      type={type}
+      disabled={disabled}
+      className={buttonClasses}
+      onClick={onClick}
+      whileHover={!disabled ? { scale: 1.05 } : {}}
+      whileTap={!disabled ? { scale: 0.95 } : {}}
+    >
+      {children}
+    </motion.button>
+  );
 };
 
 export default Button;

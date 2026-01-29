@@ -26,7 +26,8 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/images/gym-hero.avif')`,
+            // backgroundImage: `url('/images/gym-hero.avif')`,
+            backgroundImage: `url('/images/LOGO.webp')`,
           }}
         ></div>
 
