@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
+import WelcomeModal from '@/components/WelcomeModal';
 import { Users, Award, Star, Clock, MapPin, Phone } from 'lucide-react';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <WelcomeModal />
       <Header />
 
       {/* Hero Section */}
