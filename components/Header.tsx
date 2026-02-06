@@ -43,9 +43,9 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">FE</span>
-            </div>
+            <div className="w-10 h-10  rounded-full flex items-center justify-center">
+
+<img src="/images/logo.png" alt="Fitness Empire Logo" />            </div>
             <span
               className={`text-xl font-bold transition-colors ${
                 scrolled ? 'text-gray-900' : 'text-white'
